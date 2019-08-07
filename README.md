@@ -24,7 +24,7 @@ step2: start all  docker container with docker-compose  (php redis nginx mysql..
 ```
 
 Then enjoy!
-website: http://ip
+website: http://0.0.0.0
 
 For using laravel artisan or other script just following the command:
 ```bash
