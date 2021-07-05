@@ -12,14 +12,14 @@ services:
    - "80:80"
   networks:
    - nginx-php7-network
-  container_name: "oa-nginx"
+  container_name: "nginx"
   command: /bin/bash -c "mkdir -p /var/www && ln -s /usr/share/nginx/html /var/www && nginx -g 'daemon off;'"
  
  php:
   image: "laradock/php-fpm"
   build:  
    context: .
-   dockerfile: "Dockerfile.php"
+   dockerfile: "Dockerfile"
   networks:
    - nginx-php7-network
   container_name: "php-fpm"
@@ -32,7 +32,7 @@ services:
    - "$PWD/db_data:/var/lib/mysql"
   environment:
    MYSQL_ROOT_PASSWORD: root123
-   MYSQL_DATABASE: oa
+  #  MYSQL_DATABASE: test
    MYSQL_USER: admin
    MYSQL_PASSWORD: test123
   ports:
